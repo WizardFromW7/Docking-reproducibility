@@ -115,3 +115,33 @@ Rigid redocking consistently outperformed flexible across all three systems.
 **Reproducibility is a property of the system, not the software.**
 
 
+---
+
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/run_sweep_vina.py` | Automates 27 Vina docking runs via subprocess |
+| `scripts/run_sweep_smina.py` | Automates 27 Smina runs via WSL |
+
+---
+
+## Prerequisites & Tutorials
+
+### Install
+- [AutoDock Vina 1.2.5](https://github.com/ccsb-scripps/AutoDock-Vina/releases)
+- [MGLTools / AutoDockTools 1.5.7](https://ccsb.scripps.edu/download/262/)
+- [Smina](https://sourceforge.net/projects/smina/) — run via WSL on Windows
+
+### Prepare receptor + ligand (.pdbqt)
+- [Official Vina tutorial](https://autodock-vina.readthedocs.io/en/latest/docking_basic.html)
+- [Step-by-step ADT guide](https://medium.com/@anoopjohny2000/molecular-docking-made-easy-a-step-by-step-guide-to-autodock4-using-autodocktools-b625f062f9d8)
+
+### Define grid box
+- Centre the box on the crystallographic ligand coordinates in ADT
+- Go to **Grid → Grid Box**, adjust until the ligand is fully enclosed
+- Record center_x/y/z and update them in the scripts
+- [Vina manual — grid box](https://vina.scripps.edu/manual/)
+
+### RMSD
+Calculated manually in AutoDockTools — load crystal pose + docked pose, select heavy atoms, use built-in superimposition tool.
