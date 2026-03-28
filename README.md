@@ -63,60 +63,7 @@ Systematic evaluation of docking reproducibility across AutoDock Vina, Smina, an
 
 Total runs per system: 27 (3×3×3 parameter combinations × 2 engines)
 
----
 
-## Figures
-
-### System Structures
-
-**Figure 1 — COX-2 (4PH9) with ibuprofen ligand**
-![4PH9 system](figures/fig1_ibuprofen_structure.png)
-
-**Figure 1b — 2D structure of ibuprofen (IBP)**  
-The carboxylic acid group mediates hydrogen bonding within the active site; isobutyl and methyl substituents contribute hydrophobic contacts.
-![Ibuprofen 2D](figures/fig1b_ibuprofen_2d.png)
-
-**Figure 2 — HIV-1 Protease (1HVR) with XK2 ligand**
-![1HVR system](figures/fig2_1hvr_system.png)
-
-**Figure 3 — β-Trypsin (3PTB) with benzamidine**
-![3PTB system](figures/fig3_3ptb_system.png)
-
----
-
-### Docking Results
-
-**Figure 4 — Docking poses across systems**
-![Docking poses](figures/fig4_docking_poses.png)
-
-**Figure 5 — Parameter sensitivity across conditions**
-![Parameter sensitivity](figures/fig5_parameter_sensitivity.png)
-
----
-
-### Ligand Modifications
-
-**Figure 7 — PyMOL representations of XK2 (1HVR) ligand modifications**  
-(a) Unmodified XK2 crystal ligand. (b) Aromatic ring deletion — loss of flanking aromatic rings reduces the pharmacophore to core scaffold. (c) Extra proton addition.
-![XK2 modifications](figures/fig7_xk2_modifications.png)
-
----
-
-### Interaction Analysis
-
-**Figure 8 — 3PTB interaction profiling (ChimeraX)**  
-Hydrogen bond interactions with Asp189 and Gly219 conserved across all ligand modification conditions.
-![3PTB interactions](figures/fig8_3ptb_interactions.png)
-
-**Figure 9 — Pose comparison: GOLD vs Vina vs Smina**  
-GOLD (ChemPLP) in yellow, AutoDock Vina in magenta, Smina in cyan.
-![Pose comparison](figures/fig9_pose_comparison.png)
-
-**Figure 10 — Coefficient of variation for flexible docking binding energies**  
-Blue = 1HVR, Green = 4PH9, Red = 3PTB. n=9 per condition.
-![CV comparison](figures/fig10_cv_comparison.png)
-
----
 
 ## Key Results
 
@@ -170,58 +117,4 @@ Rigid redocking consistently outperformed flexible across all three systems.
 
 **Reproducibility is a property of the system, not the software.**
 
----
 
-## Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/run_sweep.py` | Automates all 27 docking parameter combinations per system |
-| `scripts/parse_results.py` | Extracts top binding energies from log files into CSV |
-| `scripts/calc_rmsd.py` | Computes pairwise heavy-atom RMSD across pose outputs |
-| `notebooks/analysis.ipynb` | Plots binding energy trends, RMSD distributions, CV chart |
-
----
-
-## Repository Structure
-
-```
-├── data/
-│   ├── receptor/      # Prepared .pdbqt receptor files
-│   └── ligand/        # Prepared .pdbqt ligand files
-├── config/
-│   ├── vina_base.txt
-│   └── smina_base.txt
-├── scripts/
-│   ├── run_sweep.py
-│   ├── parse_results.py
-│   └── calc_rmsd.py
-├── figures/           # All dissertation figures
-├── results/
-│   ├── raw/           # Raw pose outputs (.pdbqt)
-│   └── summary/       # Parsed CSVs
-├── notebooks/
-│   └── analysis.ipynb
-└── environment.yml
-```
-
----
-
-## Reproduce
-
-```bash
-git clone https://github.com/WizardFromW7/molecular-docking-reproducibility
-cd molecular-docking-reproducibility
-conda env create -f environment.yml
-conda activate docking-repro
-
-python scripts/run_sweep.py \
-  --exhaustiveness 8 16 32 \
-  --grid_sizes 18 22 26 \
-  --seeds 12345 54321 99999 \
-  --software vina smina
-
-python scripts/parse_results.py
-python scripts/calc_rmsd.py
-jupyter notebook notebooks/analysis.ipynb
-```
