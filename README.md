@@ -145,3 +145,8 @@ Rigid redocking consistently outperformed flexible across all three systems.
 
 ### RMSD
 Calculated manually in AutoDockTools — load crystal pose + docked pose, select heavy atoms, use built-in superimposition tool.
+
+### Download structures
+- [1HVR](https://www.rcsb.org/structure/1HVR) — HIV-1 Protease
+- [4PH9](https://www.rcsb.org/structure/4PH9) — COX-2
+- [3PTB](https://www.rcsb.org/structure/3PTB) — β-Trypsin
