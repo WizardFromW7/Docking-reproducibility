@@ -1,0 +1,16 @@
+name: docking-repro
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=2.2.1
+  - matplotlib=3.8.3
+  - mdanalysis=2.7.0
+  - openbabel=3.1.1
+  - jupyter=1.0.0
+  - ipykernel=6.29.3
+  - pip:
+      - vina==1.2.5
+      - smina==2020.12.10
