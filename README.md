@@ -1,7 +1,4 @@
-# Molecular Docking Reproducibility — BSc Pharmacology Dissertation
-
-**University of Reading, School of Pharmacy | 2025–26**  
-**Benjamin Kamya**
+# Molecular Docking Reproducibility 
 
 > Docking reproducibility is not an intrinsic property of a software engine — it depends on the structural and energetic landscape of the target protein.
 
