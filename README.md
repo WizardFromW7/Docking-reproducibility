@@ -6,7 +6,7 @@
 
 ## Objective
 
-Systematic evaluation of docking reproducibility across AutoDock Vina, Smina, and GOLD using three crystallographic benchmark systems. Parameters swept: exhaustiveness, grid size, stochastic seed, ligand flexibility, and ligand preparation.
+Systematic evaluation of docking reproducibility across AutoDock Vina, Smina, and GOLD using three crystallographic benchmark systems. Parameters swept: exhaustiveness, grid size, stochastic seed, ligand flexibility, and ligand preparation. :)
 
 ---
 
